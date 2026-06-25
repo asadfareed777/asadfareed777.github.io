@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Asad Fareed — Senior Android & Flutter Developer. 6+ years building enterprise mobile apps. AFC, Facial Recognition, NFC, ML Integration.">
+  <meta name="keywords" content="Android Developer, Flutter Developer, Kotlin, AFC, Facial Recognition, NFC, Pakistan, Lahore, PITB">
+  <meta name="author" content="Asad Fareed">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Asad Fareed — Senior Android & Flutter Developer">
+  <meta property="og:description" content="6+ years building enterprise mobile applications. AFC · Facial Recognition · NFC · Machine Learning">
+  <meta property="og:type" content="website">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Asad Fareed">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Asad Fareed — Android & Flutter Developer</title>
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #0A1628;
+      overflow: hidden;
+    }
+    #loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #0A1628;
+      color: #2E74B5;
+      font-family: 'Inter', sans-serif;
+    }
+    .loader-ring {
+      width: 48px; height: 48px;
+      border: 3px solid #1E3A6E;
+      border-top: 3px solid #2E74B5;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loader-name { font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
+    .loader-title { font-size: 13px; color: #4A9FD4; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    <div class="loader-ring"></div>
+    <div class="loader-name">Asad Fareed</div>
+    <div class="loader-title">Senior Android & Flutter Developer</div>
+  </div>
+
+  <script>
+    window.addEventListener('flutter-first-frame', function() {
+      document.getElementById('loading').style.display = 'none';
+    });
+  </script>
+
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
