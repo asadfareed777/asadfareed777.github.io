@@ -84,13 +84,18 @@ class SkillGroup {
 }
 
 const skillGroups = <SkillGroup>[
-  SkillGroup(Icons.code, 'Languages', ['Kotlin', 'Java', 'Dart']),
+  SkillGroup(Icons.code, 'Languages', ['Kotlin', 'Java', 'Dart', 'Python']),
   SkillGroup(Icons.phone_android, 'Mobile', [
     'Android',
     'Flutter',
     'Jetpack Compose',
     'Android Jetpack',
     'Android Studio',
+  ]),
+  SkillGroup(Icons.devices_outlined, 'Cross-Platform', [
+    'Kotlin Multiplatform (KMP)',
+    'Compose Multiplatform (CMP)',
+    'Flutter',
   ]),
   SkillGroup(Icons.account_tree_outlined, 'Architecture', [
     'Clean Architecture',
@@ -103,6 +108,7 @@ const skillGroups = <SkillGroup>[
     'REST APIs',
     'Retrofit',
     'WebSocket & Real-Time Comms',
+    'MQTT',
     'Socket.io',
     'Firebase',
     'Google Maps',
@@ -116,18 +122,43 @@ const skillGroups = <SkillGroup>[
     'TensorFlow Lite',
     'OpenCV',
     'Computer Vision',
+    'Deep Learning',
+    'YOLO',
+    'Image Segmentation',
+    'Image Classification',
     'Facial Recognition',
     'Anti-Spoofing Systems',
     'Machine Learning Integration',
   ]),
+  SkillGroup(Icons.auto_awesome_outlined, 'AI & Data Science', [
+    'Generative AI',
+    'LLMs',
+    'NLP',
+    'Pandas',
+    'Python',
+  ]),
   SkillGroup(Icons.payments_outlined, 'Payments & Transit', [
     'Automatic Fare Collection (AFC)',
     'NFC & Smart Card',
+    'POS Contactless (NFC) Payments',
     'Payment Gateway Integration',
     'EMV Contactless',
     'MPGS Integration',
     'Open / Closed-Loop Payments',
     'Validator Software',
+  ]),
+  SkillGroup(Icons.settings_remote_outlined, 'MDM & Device Management', [
+    'MDM Servers',
+    'Headwind MDM',
+    'MeshCentral',
+    'Android Agents',
+    'Windows Agents',
+    'Multi-OS Agents',
+  ]),
+  SkillGroup(Icons.lock_outline, 'Security & Cryptography', [
+    'Cryptography',
+    'Hashing',
+    'PCI DSS Compliance',
   ]),
   SkillGroup(Icons.rocket_launch_outlined, 'DevOps', [
     'Git',
@@ -339,5 +370,17 @@ const education = <Edu>[
   Edu('Matriculation', 'Quaid Public School, Burewala', '2013'),
 ];
 
-const certifications = <String>['Computer System Engineering (2013)'];
+class Cert {
+  final String title;
+  final String issuer;
+  final String? image; // asset path, shown when the card is tapped
+  const Cert(this.title, this.issuer, {this.image});
+}
+
+const certifications = <Cert>[
+  Cert('PCI DSS Compliance Project',
+      'Certificate of Completion of Training · 360 Technologies (Pvt) Ltd. with Punjab Information Technology Board',
+      image: 'assets/images/pci_dss_certificate.jpg'),
+  Cert('Computer System Engineering (2013)', ''),
+];
 const awards = <String>['Best Cultural Representative (2016)'];

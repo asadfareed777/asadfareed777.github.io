@@ -30,10 +30,15 @@ class EducationSection extends StatelessWidget {
           for (final c in d.certifications)
             Reveal(
               child: _Card(
-                  t: t,
-                  icon: Icons.verified_outlined,
-                  title: 'Certification',
-                  subtitle: c),
+                t: t,
+                icon: Icons.verified_outlined,
+                title: c.title,
+                subtitle: c.issuer.isEmpty ? 'Certification' : c.issuer,
+                trailing: c.image != null ? 'Tap to view certificate' : null,
+                onTap: c.image == null
+                    ? null
+                    : () => _showCert(context, c.image!, c.title),
+              ),
             ),
           for (final a in d.awards)
             Reveal(
@@ -55,17 +60,20 @@ class _Card extends StatelessWidget {
   final String title;
   final String subtitle;
   final String? trailing;
+  final VoidCallback? onTap;
   const _Card({
     required this.t,
     required this.icon,
     required this.title,
     required this.subtitle,
     this.trailing,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) => HoverBox(
         t: t,
+        onTap: onTap,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Container(
             width: 44,
@@ -85,4 +93,29 @@ class _Card extends StatelessWidget {
           ],
         ]),
       );
+}
+
+void _showCert(BuildContext context, String asset, String title) {
+  showDialog<void>(
+    context: context,
+    builder: (_) => Dialog(
+      backgroundColor: Colors.black87,
+      insetPadding: const EdgeInsets.all(20),
+      child: Stack(children: [
+        InteractiveViewer(
+          maxScale: 4,
+          child: Image.asset(asset, fit: BoxFit.contain),
+        ),
+        Positioned(
+          top: 4,
+          right: 4,
+          child: IconButton(
+            tooltip: 'Close',
+            onPressed: () => Navigator.of(context).pop(),
+            icon: const Icon(Icons.close, color: Colors.white),
+          ),
+        ),
+      ]),
+    ),
+  );
 }

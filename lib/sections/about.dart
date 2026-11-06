@@ -77,7 +77,7 @@ class _InfoCard extends StatelessWidget {
 
   Widget _row(IconData icon, String label, String value, {VoidCallback? onTap}) =>
       Padding(
-        padding: const EdgeInsets.only(bottom: 18),
+        padding: const EdgeInsets.symmetric(vertical: 14),
         child: MouseRegion(
           cursor: onTap != null ? SystemMouseCursors.click : MouseCursor.defer,
           child: GestureDetector(
@@ -105,23 +105,59 @@ class _InfoCard extends StatelessWidget {
         ),
       );
 
+  Widget _divider() =>
+      Divider(height: 1, thickness: 1, color: t.border.withOpacity(0.7));
+
   @override
-  Widget build(BuildContext context) => HoverBox(
-        t: t,
-        padding: const EdgeInsets.all(26),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+  Widget build(BuildContext context) {
+    final rows = <Widget>[
+      _row(Icons.mail_outline, 'Email', d.email,
+          onTap: () => openUrl('mailto:${d.email}')),
+      _row(Icons.phone_outlined, 'Phone', d.phone,
+          onTap: () => openUrl('tel:${d.phoneRaw}')),
+      _row(Icons.location_on_outlined, 'Location', d.location),
+      _row(Icons.work_outline, 'Current Role',
+          'Android Developer · Punjab IT Board'),
+      _row(Icons.timeline_outlined, 'Experience', '6+ years in mobile development'),
+      _row(Icons.school_outlined, 'Education',
+          'BS Computer Science, COMSATS (2019)'),
+      _row(Icons.check_circle_outline, 'Availability',
+          'Open to new opportunities'),
+    ];
+    return HoverBox(
+      t: t,
+      padding: const EdgeInsets.all(26),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
           Text('Quick Info', style: t.font(18, weight: FontWeight.w700)),
-          const SizedBox(height: 22),
-          _row(Icons.mail_outline, 'Email', d.email,
-              onTap: () => openUrl('mailto:${d.email}')),
-          _row(Icons.phone_outlined, 'Phone', d.phone,
-              onTap: () => openUrl('tel:${d.phoneRaw}')),
-          _row(Icons.location_on_outlined, 'Location', d.location),
-          _row(Icons.school_outlined, 'Education',
-              'BS Computer Science, COMSATS (2019)'),
-        ]),
-      );
+          const SizedBox(height: 8),
+          Column(children: [
+            for (var i = 0; i < rows.length; i++) ...[
+              if (i > 0) _divider(),
+              rows[i],
+            ],
+          ]),
+          const SizedBox(height: 18),
+          _divider(),
+          const SizedBox(height: 20),
+          Wrap(
+            spacing: 14,
+            runSpacing: 14,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              SocialRow(t: t),
+              Btn(
+                  t: t,
+                  filled: true,
+                  label: 'Download CV',
+                  icon: Icons.download,
+                  onTap: openCv),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 }
