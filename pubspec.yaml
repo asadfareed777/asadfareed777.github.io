@@ -1,0 +1,24 @@
+name: asad_portfolio
+description: Asad Fareed - Senior Android & Flutter Developer portfolio (Flutter Web)
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: ^11.0.0
+  google_fonts: ^6.2.1
+  url_launcher: ^6.3.0
+  visibility_detector: ^0.4.0+2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/

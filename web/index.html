@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Asad Fareed — Senior Android & Flutter Developer. 6+ years building enterprise mobile apps: AFC, NFC, facial recognition, anti-spoofing and ML integration.">
+  <meta name="keywords" content="Asad Fareed, Android Developer, Flutter Developer, Kotlin, AFC, NFC, Facial Recognition, Lahore, Pakistan">
+  <meta name="author" content="Asad Fareed">
+  <meta name="theme-color" content="#0B1220">
+
+  <meta property="og:title" content="Asad Fareed — Senior Android & Flutter Developer">
+  <meta property="og:description" content="6+ years building enterprise mobile apps. AFC · NFC · Facial Recognition · Anti-Spoofing · ML.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Asad Fareed Portfolio">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Asad Fareed">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="manifest" href="manifest.json">
+
+  <title>Asad Fareed — Senior Android & Flutter Developer</title>
+
+  <style>
+    html, body { margin: 0; height: 100%; background: #0B1220; }
+    #loading {
+      position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; z-index: 10;
+      font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(0,180,255,.16), transparent 42%),
+        radial-gradient(circle at 85% 10%, rgba(0,180,255,.10), transparent 35%),
+        radial-gradient(rgba(120,150,200,.22) 1px, transparent 1.2px) 0 0 / 34px 34px,
+        linear-gradient(180deg, #0B1220 0%, #0F1A30 100%);
+      transition: opacity .4s ease;
+    }
+    .badge {
+      width: 84px; height: 84px; border-radius: 50%; margin-bottom: 26px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; font-weight: 800; color: #66D4FF; letter-spacing: -1px;
+      background: #142039; border: 2px solid #00B4FF;
+      box-shadow: 0 0 40px rgba(0,180,255,.35);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    .mark { font-size: 30px; font-weight: 800; color: #EAF0FF; letter-spacing: -.5px; }
+    .role { font-size: 14px; color: #66D4FF; margin-top: 8px; font-weight: 600; }
+    .bar { width: 160px; height: 3px; border-radius: 3px; background: #263653;
+           margin-top: 26px; overflow: hidden; }
+    .bar i { display: block; width: 40%; height: 100%; background: #00B4FF;
+             border-radius: 3px; animation: slide 1.1s ease-in-out infinite; }
+    .sub  { font-size: 12px; color: #9CAAC8; margin-top: 12px; }
+    @keyframes slide { 0% { transform: translateX(-100%); } 100% { transform: translateX(260%); } }
+    @keyframes pulse { 50% { box-shadow: 0 0 60px rgba(0,180,255,.55); } }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    <div class="badge">AF</div>
+    <div class="mark">Asad Fareed</div>
+    <div class="role">Senior Android &amp; Flutter Developer</div>
+    <div class="bar"><i></i></div>
+    <div class="sub">Loading portfolio…</div>
+  </div>
+
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var el = document.getElementById('loading');
+      el.style.opacity = '0';
+      setTimeout(function () { el.remove(); }, 450);
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
